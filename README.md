@@ -83,3 +83,43 @@ The system currently simulates three industrial machines:
               │
               ↓
         Flask Dashboard
+
+## 📸 Dashboard Preview
+
+![Industrial IoT Dashboard](dashboard-preview.png)
+## 🛠️ Tools & Technologies Used
+
+| Tool / Technology | Purpose |
+|---|---|
+| 💻 Visual Studio Code | C and Python development |
+| ⚙️ MSYS2 UCRT64 | C development environment |
+| 🔧 GCC | C compilation |
+| 🗄️ SQLite | Sensor data storage |
+| 🐍 Python | Dashboard backend |
+| 🌐 Flask | Web monitoring dashboard |
+| 🔌 TCP/IP | Sensor data communication |
+| 📡 MQTT | IoT messaging simulation |
+
+---
+## 🌐 Servers Used
+
+### 🔌 TCP/IP Server
+
+| Configuration | Value |
+|---|---|
+| Protocol | TCP |
+| Server IP | `127.0.0.1` |
+| Port | `9090` |
+| Address | `127.0.0.1:9090` |
+| Purpose | Real-time sensor data communication |
+
+### 📊 Flask Dashboard Server
+
+| Configuration | Value |
+|---|---|
+| Framework | Flask |
+| Host | `127.0.0.1` |
+| Port | `5000` |
+| Protocol | HTTP |
+| Dashboard URL | `http://127.0.0.1:5000/` |
+| Purpose | Web-based machine monitoring |
