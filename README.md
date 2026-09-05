@@ -83,10 +83,11 @@ The system currently simulates three industrial machines:
               │
               ↓
         Flask Dashboard
-
+        
 ## 📸 Dashboard Preview
 
-![Industrial IoT Dashboard](dashboard-preview.png)
+<img src="dashboard-preview.png" alt="Industrial IoT Dashboard" width="100%">
+
 ## 🛠️ Tools & Technologies Used
 
 | Tool / Technology | Purpose |
