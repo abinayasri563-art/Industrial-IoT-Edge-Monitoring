@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <!-- Automatically refresh dashboard every 3 seconds -->
+    <meta http-equiv="refresh" content="3">
+
+    <title>Industrial IoT Monitoring Dashboard</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        header {
+            background: #1f2937;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            margin-top: 8px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        .summary {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .table-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #374151;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .normal {
+            color: green;
+            font-weight: bold;
+        }
+
+        .warning {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .critical {
+            color: red;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            color: #666;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>Industrial IoT Monitoring Dashboard</h1>
+
+    <p>
+        Real-Time Machine Sensor Monitoring System
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- Summary Cards -->
+
+    <div class="summary">
+
+
+        <div class="card">
+
+            <h3>System</h3>
+
+            <p>
+                Industrial IoT Edge Monitoring
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Machines</h3>
+
+            <p>
+                Motor-A | Pump-B | Compressor-C
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Data Source</h3>
+
+            <p>
+                SQLite Database
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- Sensor Data Table -->
+
+    <div class="table-container">
+
+        <h2>
+            Latest Sensor Readings
+        </h2>
+
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Machine</th>
+
+                    <th>Timestamp</th>
+
+                    <th>Temperature</th>
+
+                    <th>Vibration</th>
+
+                    <th>Pressure</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+                {% for row in sensor_data %}
+
+
+                <tr>
+
+
+                    <td>
+                        {{ row["id"] }}
+                    </td>
+
+
+                    <td>
+                        {{ row["machine_name"] }}
+                    </td>
+
+
+                    <td>
+                        {{ row["timestamp"] }}
+                    </td>
+
+
+                    <td>
+                        {{ row["temperature"] }} °C
+                    </td>
+
+
+                    <td>
+                        {{ row["vibration"] }} mm/s
+                    </td>
+
+
+                    <td>
+                        {{ row["pressure"] }} PSI
+                    </td>
+
+
+                    <td>
+
+
+                        {% if row["status"] == "NORMAL" %}
+
+                            <span class="normal">
+                                NORMAL
+                            </span>
+
+
+                        {% elif row["status"] == "WARNING" %}
+
+                            <span class="warning">
+                                WARNING
+                            </span>
+
+
+                        {% else %}
+
+                            <span class="critical">
+                                CRITICAL
+                            </span>
+
+                        {% endif %}
+
+
+                    </td>
+
+
+                </tr>
+
+
+                {% endfor %}
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+</div>
+
+
+<footer>
+
+    Industrial IoT Monitoring System
+
+    <br>
+
+    Developed using C, SQLite, TCP/IP and Flask
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+# Compiled programs
+*.exe
+*.out
+*.o
+*.obj
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# VS Code
+.vscode/
+
+# Temporary files
+*.tmp
+*.temp
+
+# SQLite temporary files
+*.db-shm
+*.db-wal
+
+# Operating system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,33 @@
+# Compiled C executables
+*.exe
+*.out
+*.o
+
+# C object files
+*.obj
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Python virtual environments
+venv/
+.venv/
+
+# Temporary files
+*.tmp
+*.temp
+
+# VS Code settings
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# SQLite temporary files
+*.db-shm
+*.db-wal
+
+# Logs
+*.log
