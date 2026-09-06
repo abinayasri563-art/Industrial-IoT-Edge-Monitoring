@@ -1,126 +1,90 @@
-# Real-Time Industrial IoT Edge Monitoring & Fault Detection System
+# 🏭 Real-Time Industrial IoT Edge Monitoring & Fault Detection System
 
-## 📌 Project Overview
+A C-based Industrial IoT system for **real-time machine monitoring, fault detection, data logging, SQLite storage, TCP/IP communication, and web-based visualization**.
 
-The **Real-Time Industrial IoT Edge Monitoring & Fault Detection System** is a C-based Industrial IoT application designed to monitor industrial machines and detect abnormal operating conditions in real time.
+## 📸 Dashboard
 
-The system continuously generates sensor readings for:
+![Industrial IoT Dashboard](./dashboard-preview.png)
 
-- 🌡️ Temperature
-- 📳 Vibration
-- 🔧 Pressure
+## ✨ Features
 
-The readings are processed using a fault-detection mechanism and classified into:
+- 🌡️ Real-time temperature monitoring
+- 📳 Vibration monitoring
+- ⚙️ Pressure monitoring
+- 🚨 Normal / Warning / Critical fault detection
+- 🧵 Multithreaded machine monitoring
+- 🗄️ SQLite database storage
+- 📝 Event logging
+- 🌐 TCP/IP server communication
+- 📡 MQTT publishing simulation
+- 📊 Flask monitoring dashboard
 
-- NORMAL
-- WARNING
-- CRITICAL
-
-Sensor data is stored in an SQLite database, abnormal events are recorded in log files, and current machine information can be transmitted through TCP/IP.
-
-A Flask-based web dashboard is also included for monitoring stored sensor data.
-
----
-
-## 🎯 Objectives
-
-The main objectives of this project are:
-
-1. Monitor multiple industrial machines in real time.
-2. Simulate industrial sensor readings.
-3. Detect abnormal machine conditions.
-4. Generate warning and critical alerts.
-5. Store sensor readings in SQLite.
-6. Maintain event logs.
-7. Implement multithreaded monitoring.
-8. Implement TCP/IP communication.
-9. Demonstrate MQTT-based IoT communication.
-10. Provide a web-based monitoring dashboard.
-
----
-
-## 🏭 Machines Monitored
-
-The system currently simulates three industrial machines:
-
-| Machine | Type |
-|---|---|
-| Motor-A | Industrial Motor |
-| Pump-B | Industrial Pump |
-| Compressor-C | Industrial Compressor |
-
----
-
-## ⚙️ System Architecture
+## 🏗️ Architecture
 
 ```text
-                INDUSTRIAL MACHINES
-                       │
-        ┌──────────────┼──────────────┐
-        ↓              ↓              ↓
-   Temperature     Vibration       Pressure
-      Sensor          Sensor         Sensor
-        │              │              │
-        └──────────────┼──────────────┘
-                       ↓
-                  C PROGRAM
-                       ↓
-              REAL-TIME PROCESSING
-                       ↓
-                 FAULT DETECTION
-                       │
-          ┌────────────┼────────────┐
-          ↓            ↓            ↓
-       NORMAL       WARNING      CRITICAL
-          │            │            │
-          └────────────┼────────────┘
-                       ↓
-                DATA LOGGING
-                       │
-              ┌────────┴────────┐
-              ↓                 ↓
-          SQLite DB         Event Log
-              │
-              ↓
-        Flask Dashboard
-        
-## 📸 Dashboard Preview
+Sensors
+   ↓
+C Real-Time Processing
+   ↓
+Fault Detection
+   ↓
+SQLite Database + Event Logs
+   ↓
+TCP/IP Server
+   ↓
+Flask Dashboard
+```
 
-<img src="dashboard-preview.png" alt="Industrial IoT Dashboard" width="100%">
+## 🛠️ Technologies
 
-## 🛠️ Tools & Technologies Used
+**C • GCC • POSIX Threads • SQLite • TCP/IP • Winsock2 • MQTT • Python • Flask • HTML • GitHub**
 
-| Tool / Technology | Purpose |
+## 🖥️ Machines Monitored
+
+- Motor-A
+- Pump-B
+- Compressor-C
+
+## 🌐 Services
+
+| Service | Address |
 |---|---|
-| 💻 Visual Studio Code | C and Python development |
-| ⚙️ MSYS2 UCRT64 | C development environment |
-| 🔧 GCC | C compilation |
-| 🗄️ SQLite | Sensor data storage |
-| 🐍 Python | Dashboard backend |
-| 🌐 Flask | Web monitoring dashboard |
-| 🔌 TCP/IP | Sensor data communication |
-| 📡 MQTT | IoT messaging simulation |
+| TCP/IP Server | `127.0.0.1:9090` |
+| Flask Dashboard | `http://127.0.0.1:5000/` |
+| Database | `industrial_iot.db` |
 
----
-## 🌐 Servers Used
+## ▶️ Run
 
-### 🔌 TCP/IP Server
+### Compile C System
 
-| Configuration | Value |
-|---|---|
-| Protocol | TCP |
-| Server IP | `127.0.0.1` |
-| Port | `9090` |
-| Address | `127.0.0.1:9090` |
-| Purpose | Real-time sensor data communication |
+```bash
+gcc main.c src/sensor.c src/fault_detection.c src/database.c src/logger.c src/monitor.c src/network.c src/mqtt.c -Iinclude -o iot_monitor_final.exe -lsqlite3 -lws2_32 -pthread
+```
 
-### 📊 Flask Dashboard Server
+### Start System
 
-| Configuration | Value |
-|---|---|
-| Framework | Flask |
-| Host | `127.0.0.1` |
-| Port | `5000` |
-| Protocol | HTTP |
-| Dashboard URL | `http://127.0.0.1:5000/` |
-| Purpose | Web-based machine monitoring |
+```bash
+./iot_monitor_final.exe
+```
+
+### Start Dashboard
+
+```bash
+cd dashboard
+python app.py
+```
+
+Open:
+
+```text
+http://127.0.0.1:5000/
+```
+
+## 🧪 Testing
+
+```bash
+gcc tests/test_fault_detection.c src/fault_detection.c -Iinclude -o fault_test
+./fault_test
+```
+
+⭐ **Industrial IoT Edge Monitoring & Fault Detection System**
